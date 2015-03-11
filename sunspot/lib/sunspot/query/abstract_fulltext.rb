@@ -37,6 +37,12 @@ module Sunspot
         @phrase_fields << TextFieldBoost.new(field, boost)
       end
 
+      # Add a pf2 field for extra boost and proximity.
+      def add_phrase_2_field(field, boost = nil)
+        @phrase_2_fields ||= []
+        @phrase_2_fields << TextFieldBoost.new(field, boost)
+      end
+
       #
       # Set highlighting options for the query. If fields is empty, the
       # Highlighting object won't pass field names at all, which means
